@@ -77,7 +77,7 @@ bool fLiteMode = false;
 bool fEnableInstantX = true;
 int nInstantXDepth = 10;
 int nDarksendRounds = 2;
-int nAnonymizeHeldCoinAmount = 1000;
+int nAnonymizeHeliCoinAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -1041,7 +1041,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "HeldCoin";
+    const char* pszModule = "HeliCoin";
 #endif
     if (pex)
         return strprintf(
@@ -1071,13 +1071,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\HeldCoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\HeldCoin
-    // Mac: ~/Library/Application Support/HeldCoin
-    // Unix: ~/.HeldCoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\HeliCoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\HeliCoin
+    // Mac: ~/Library/Application Support/HeliCoin
+    // Unix: ~/.HeliCoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "HeldCoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "HeliCoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1089,10 +1089,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "HeldCoin";
+    return pathRet / "HeliCoin";
 #else
     // Unix
-    return pathRet / ".HeldCoin";
+    return pathRet / ".HeliCoin";
 #endif
 #endif
 }
@@ -1141,7 +1141,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "HeldCoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "HeliCoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1186,7 +1186,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "heldcoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "helicecoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

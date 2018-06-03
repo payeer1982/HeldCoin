@@ -269,7 +269,7 @@ public:
     {
         switch (banReason) {
         case BanReasonNodeMisbehaving:
-            return "node misbehaving";
+            return "node misbehabing";
         case BanReasonManuallyAdded:
             return "manually added";
         default:

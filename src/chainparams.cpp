@@ -56,35 +56,34 @@ public:
 		// The message start string is designed to be unlikely to occur in normal data.
 		// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 		// a large 4-byte int at any alignment.
-		pchMessageStart[0] = 0xb9;
-		pchMessageStart[1] = 0xba;
-		pchMessageStart[2] = 0xfb;
-		pchMessageStart[3] = 0x63;
+		pchMessageStart[0] = 0x07;
+		pchMessageStart[1] = 0x07;
+		pchMessageStart[2] = 0x01;
+		pchMessageStart[3] = 0x01;
 		vAlertPubKey = ParseHex("044a305e25e17dca6b7844c288e66ddb973c149e6c2fb543d2854f0950873aab5f4efa617ca7e9e7887c4e61feedeaf86d8fc1b58181e226d673edd4bea04467eb");
 		nDefaultPort = 45522;
 		nRPCPort = 45523;
 		bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 		
-		const char* pszTimestamp = "Held-clon 22/04/2018 Gomining";
+		const char* pszTimestamp = "helicoin mola lista para el 2019";
 		std::vector<CTxIn> vin;
 		vin.resize(1);
 		vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
 		std::vector<CTxOut> vout;
 		vout.resize(1);
 		vout[0].SetEmpty();
-		CTransaction txNew(1, 1524355623, vin, vout, 0);
+		CTransaction txNew(1, 1527970239, vin, vout, 0);
 		genesis.vtx.push_back(txNew);
 		genesis.hashPrevBlock = 0;
 		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
 		genesis.nVersion = 1;
-		genesis.nTime = 1524355623;
+		genesis.nTime = 1527970239;
 		genesis.nBits = 520159231;
 		genesis.nNonce = 245978;
 
 		hashGenesisBlock = genesis.GetHash();
-
-		assert(genesis.hashMerkleRoot == uint256("0xb8c6e7d326299ebb644bdd21721d16095c6d743dc44455883da1a58c077e158d"));
-		assert(hashGenesisBlock == uint256("0x0000d016f18dbb5344f2efcb98171608329e348136081c37384f5a0e16231960"));
+		assert(genesis.hashMerkleRoot == uint256("0xcb27dee485d4ed543d76e74edd3a3fc3101943962b2e0a982d97ebd02d785dc4"));
+		assert(hashGenesisBlock == uint256("0xb6fcd178afaa9a5342015e86f4ff71f490d60389b9df035f68c005cf212a2106"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 40);
 		base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
@@ -93,8 +92,8 @@ public:
 		base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
 		base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("0",  "194.67.195.72"));
-        vSeeds.push_back(CDNSSeedData("1",  "194.67.195.43"));
+        vSeeds.push_back(CDNSSeedData("209.250.248.103","209.250.248.103"));
+        vSeeds.push_back(CDNSSeedData("85.53.81.75","85.53.81.75"));
 		convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
 		nPoolMaxTransactions = 3;
@@ -129,10 +128,10 @@ public:
 		// The message start string is designed to be unlikely to occur in normal data.
 		// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 		// a large 4-byte int at any alignment.
-		pchMessageStart[0] = 0x1d;
-		pchMessageStart[1] = 0x7e;
-		pchMessageStart[2] = 0xa6;
-		pchMessageStart[3] = 0x2c;
+		pchMessageStart[0] = 0x07;
+		pchMessageStart[1] = 0x07;
+		pchMessageStart[2] = 0x01;
+		pchMessageStart[3] = 0x01;
 		bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 		vAlertPubKey = ParseHex("044a305e25e17dca6b7844c288e66ddb973c149e6c2fb543d2854f0950873aab5f4efa617ca7e9e7887c4e61feedeaf86d8fc1b58181e226d673edd4bea04467eb");
 		nDefaultPort = 20115;
@@ -142,7 +141,7 @@ public:
 		genesis.nBits = 520159231;
 		genesis.nNonce = 245978;      
 
-		assert(hashGenesisBlock == uint256("0x0000d016f18dbb5344f2efcb98171608329e348136081c37384f5a0e16231960"));
+		assert(hashGenesisBlock == uint256("0xb6fcd178afaa9a5342015e86f4ff71f490d60389b9df035f68c005cf212a2106"));
 
 		vFixedSeeds.clear();
 		vSeeds.clear();

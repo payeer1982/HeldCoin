@@ -1,11 +1,11 @@
 
-# HeldCoin development tree
+# HeliCoin development tree
 
-HeldCoin is a PoS-based cryptocurrency.
+HeliCoin is a PoS-based cryptocurrency.
 
 Rpcport - 45523
 
-HLDC is dependent upon libsecp256k1 by sipa, the sources for which can be found here:
+HLCC is dependent upon libsecp256k1 by sipa, the sources for which can be found here:
 https://github.com/bitcoin/secp256k1
 
 Install
@@ -19,7 +19,7 @@ aptitude install miniupnpc libminiupnpc-dev
 
 sudo apt-get install libgmp3-dev
 
-cd heldcoin
+cd helicecoin
 cd src
 cd leveldb
 chmod 755 build_detect_platform
@@ -30,13 +30,13 @@ cd ..
 
 make -f makefile.unix
 
-strip heldcoind
+strip helicecoind
 
-cp heldcoind /usr/local/bin
+cp helicecoind /usr/local/bin
 
-heldcoind -daemon
+helicecoind -daemon
 -----------------
-rpcuser=rpc_heldcoinu
+rpcuser=rpc_helicecoinu
 rpcpassword=password
 rpcallowip=127.0.0.1
 listen=1
@@ -44,7 +44,7 @@ server=1
 txindex=1
 daemon=1
 
-heldcoind stop
+helicecoind stop
 --------------
-heldcoind -daemon
+helicecoind -daemon
 -----------------
